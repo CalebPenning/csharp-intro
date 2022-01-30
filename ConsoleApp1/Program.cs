@@ -38,6 +38,10 @@ namespace HelloWorld
             Console.ReadLine();
 
             MultipleLegs(dog, duck);
+
+            Console.WriteLine($"Hello! I'm {dog.Name} the {dog.Type}! I have {dog.Legs} legs and if you're wondering if I have fur, it's {dog.HasFur}");
+            Console.WriteLine($"Hello! I'm {duck.Name} the {duck.Type}! I have {duck.Legs} legs and if you're wondering if I have fur, it's {duck.HasFur}");
+            Console.ReadLine();
         }
     }
 
