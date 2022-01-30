@@ -10,22 +10,43 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            int num1 = 0;
-            int num2 = 0;
-            int result = 0;
+            PetStruct dog;
+            dog.Type = PetType.Dog;
+            dog.HasFur = true;
+            dog.Legs = 4;
+            dog.Name = "Honey";
 
-            Console.WriteLine("Enter first number: ");
-            string sNum1 = Console.ReadLine();
+            var duck = new Pet();
+            duck.Type = PetType.Duck;
+            duck.HasFur = false;
+            duck.Legs = 2;
+            duck.Name = "Quackity";
 
-            Console.WriteLine("Enter second number: ");
-            string sNum2 = Console.ReadLine();
-
-            Int32.TryParse(sNum1, out num1);
-            Int32.TryParse(sNum2, out num2);
-
-            result = num1 + num2;
-            Console.WriteLine("Result: " + result);
+            Console.WriteLine($"Hello! I'm {dog.Name} the {dog.Type}! I have {dog.Legs} legs and if you're wondering if I have fur, it's {dog.HasFur}");
+            Console.WriteLine($"Hello! I'm {duck.Name} the {duck.Type}! I have {duck.Legs} legs and if you're wondering if I have fur, it's {duck.HasFur}");
             Console.ReadLine();
         }
+    }
+
+    class Pet
+    {
+        public int Legs;
+        public PetType Type;
+        public string Name;
+        public bool HasFur;
+    }
+
+    struct PetStruct
+    {
+        public int Legs;
+        public PetType Type;
+        public string Name;
+        public bool HasFur;
+    }
+
+    enum PetType
+    {
+        Dog,
+        Duck
     }
 }
