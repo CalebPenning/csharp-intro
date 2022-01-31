@@ -21,6 +21,24 @@ namespace HelloWorld
 
         static void Main(string[] args)
         {
+            List<string> listOfStrings = new List<string>();
+            listOfStrings.Add("Yoooooo");
+            listOfStrings.Insert(1, "yeeeeeeeee");
+
+            listOfStrings.Remove("Yoooooo");
+            listOfStrings.RemoveAt(0);
+
+            Dictionary<string, List<int>> scores = new Dictionary<string, List<int>>();
+            scores.Add("Caleb", new List<int>());
+            scores["Caleb"].Add(24);
+            scores["Caleb"].Add(25);
+            scores["Caleb"].Add(21);
+
+            for (int i = 0; i < scores["Caleb"].Count; i++)
+            {
+                Console.WriteLine($"{scores["Caleb"][i]}");
+            }
+
             PetStruct dog;
             dog.Type = PetType.Dog;
             dog.HasFur = true;
@@ -41,6 +59,19 @@ namespace HelloWorld
 
             Console.WriteLine($"Hello! I'm {dog.Name} the {dog.Type}! I have {dog.Legs} legs and if you're wondering if I have fur, it's {dog.HasFur}");
             Console.WriteLine($"Hello! I'm {duck.Name} the {duck.Type}! I have {duck.Legs} legs and if you're wondering if I have fur, it's {duck.HasFur}");
+            Console.ReadLine();
+
+
+            List<Pet> pets = new List<Pet>();
+            pets.Add(new Pet { HasFur = false, Legs = 4, Name = "Jasper's Friend", Type = PetType.Lizard });
+            pets.Add(new Pet { HasFur = true, Legs = 4, Name = "Honey Bear", Type = PetType.Cat });
+            pets.Add(new Pet { HasFur = true, Legs = 4, Name = "Owen", Type = PetType.Cat });
+
+            List<Pet> results = (from p in pets
+                                where p.Type == PetType.Lizard
+                                select p).ToList();
+
+            Console.WriteLine($"found {results.Count} {results[0].Type.ToString()}s");
             Console.ReadLine();
         }
     }
@@ -64,6 +95,8 @@ namespace HelloWorld
     enum PetType
     {
         Dog,
-        Duck
+        Cat,
+        Duck,
+        Lizard
     }
 }
