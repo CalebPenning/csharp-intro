@@ -34,9 +34,9 @@ namespace HelloWorld
             scores["Caleb"].Add(25);
             scores["Caleb"].Add(21);
 
-            for (int i = 0; i < scores["Caleb"].Count; i++)
+            for (int a = 0; a < scores["Caleb"].Count; a++)
             {
-                Console.WriteLine($"{scores["Caleb"][i]}");
+                Console.WriteLine($"{scores["Caleb"][a]}");
             }
 
             PetStruct dog;
@@ -71,7 +71,29 @@ namespace HelloWorld
                                 where p.Type == PetType.Lizard
                                 select p).ToList();
 
-            Console.WriteLine($"found {results.Count} {results[0].Type.ToString()}s");
+            results = pets.Where(p => p.Type == PetType.Cat | p.Type == PetType.Lizard).ToList();
+
+            for (int j = 0; j < results.Count; j++)
+            {
+                Console.WriteLine(results[j].Name);
+            }
+            int answer = int.Parse(Console.ReadLine());
+            int i = 0;
+            while (i <= answer)
+            {
+                if (i < answer)
+                {
+                    Console.WriteLine($"{i} isn't the right answer, try again");
+                }
+
+                else
+                {
+                    Console.WriteLine($"That's right! {i} is the rigth answer!");
+                }
+
+                i++;
+            }
+
             Console.ReadLine();
         }
     }
